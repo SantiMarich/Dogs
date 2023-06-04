@@ -10,7 +10,9 @@ const getDogsHandler = async (req, res) => {
   try {
     const results = name ? await getDogsByName(name) : await getAllDogs();
     if (results.length === 0) {
-      return res.status(404).json({ message: "La raza indicada no existe" });
+      return res
+        .status(404)
+        .json({ message: "La raza especificada no existe" });
     }
     res.status(200).json(results);
   } catch (error) {
@@ -23,6 +25,11 @@ const getDogsIdHandler = async (req, res) => {
   const source = isNaN(id) ? "DB" : "API";
   try {
     const dog = await getDogsById(id, source);
+    if (!dog) {
+      return res
+        .status(404)
+        .json({ message: "La raza especificada no existe" });
+    }
     res.status(200).json(dog);
   } catch (error) {
     res.status(400).json({ error: error.message });

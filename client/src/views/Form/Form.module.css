@@ -1,0 +1,14 @@
+.Form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid white;
+  width: 600px;
+}
+
+.error {
+  color: red;
+  font-size: 0.8em;
+}

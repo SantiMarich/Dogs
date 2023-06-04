@@ -1,31 +1,34 @@
 const axios = require("axios");
 const { Temperament } = require("../db");
-const { API_KEY } = process.env;
 
 const getAllTemperaments = async () => {
-  const response = await axios.get(
-    `https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`
-  );
+  try {
+    const response = await axios.get(`https://api.thedogapi.com/v1/breeds`);
 
-  const uniqueTemperaments = [];
+    const uniqueTemperaments = new Set();
 
-  response.data.forEach((dog) => {
-    if (dog.temperament) {
-      const temperaments = dog.temperament.split(", ");
-      temperaments.forEach((temperament) => {
-        if (!uniqueTemperaments.includes(temperament)) {
-          uniqueTemperaments.push(temperament);
-        }
+    response.data.forEach((dog) => {
+      if (dog.temperament) {
+        const temperaments = dog.temperament.split(", ");
+        temperaments.forEach((temperament) => {
+          uniqueTemperaments.add(temperament);
+        });
+      }
+    });
+
+    const savedTemperaments = [];
+
+    for (const temperament of uniqueTemperaments) {
+      const savedTemperament = await Temperament.findOrCreate({
+        where: { name: temperament },
       });
+      savedTemperaments.push(savedTemperament[0]);
     }
-  });
 
-  for (const temperament of uniqueTemperaments) {
-    await Temperament.create({ name: temperament });
+    return savedTemperaments;
+  } catch (error) {
+    throw new Error("Failed to fetch Temperaments");
   }
-
-  const allTemperamentsId = await Temperament.findAll();
-  return allTemperamentsId;
 };
 
 module.exports = { getAllTemperaments };

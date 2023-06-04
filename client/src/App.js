@@ -1,11 +1,14 @@
 import "./App.css";
-import { Route } from "react-router-dom";
+import { Route, useLocation } from "react-router-dom";
 import { Home, Landing, Form, Detail } from "./views/Views";
+import NavBar from "./components/NavBar/NavBar";
 
 function App() {
+  const location = useLocation();
+
   return (
     <div className="App">
-      <h1>Henry Dogs</h1>
+      {location.pathname !== "/" && <NavBar />}
       <Route exact path="/" component={Landing} />
       <Route exact path="/home" component={Home} />
       <Route exact path="/create" component={Form} />
