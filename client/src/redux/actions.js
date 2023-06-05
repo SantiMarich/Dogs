@@ -4,6 +4,7 @@ const url = "http://localhost:3001";
 
 export const GET_DOGS = "GET_DOGS";
 export const GET_DETAIL = "GET_DETAIL";
+export const RESET_DETAIL = "RESET_DETAIL";
 export const GET_QUERY = "GET_QUERY";
 export const GET_TEMPERAMENTS = "GET_TEMPERAMENTS";
 export const POST_DOG = "POST_DOG";
@@ -11,6 +12,7 @@ export const ORDER_NAME = "ORDER_NAME";
 export const ORDER_WEIGHT = "ORDER_WEIGHT";
 export const FILTER_TEMPERAMENTS = "FILTER_TEMPERAMENTS";
 export const FILTER_CREATE = "FILTER_CREATE";
+export const CURRENT_PAGE = "CURRENT_PAGE";
 
 export const getAllDogs = () => {
   return async function (dispatch) {
@@ -29,6 +31,16 @@ export const getDetailDogs = (id) => {
     const apiData = await axios.get(`${url}/dogs/${id}`);
     const dog = apiData.data;
     dispatch({ type: GET_DETAIL, payload: dog });
+  };
+};
+
+export const resetDetail = () => {
+  return async function (dispatch) {
+    try {
+      dispatch({ type: RESET_DETAIL });
+    } catch (error) {
+      return { error: error.message };
+    }
   };
 };
 
@@ -79,4 +91,8 @@ export const orderByName = (order) => {
 
 export const orderByWeight = (order) => {
   return { type: ORDER_WEIGHT, payload: order };
+};
+
+export const CurrentPage = (page) => {
+  return { type: CURRENT_PAGE, payload: page };
 };

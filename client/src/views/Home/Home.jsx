@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "../../components/Container";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllDogs } from "../../redux/actions";
+import { getAllDogs, CurrentPage } from "../../redux/actions";
 import Filters from "../../components/Filters/Filters";
 import Orders from "../../components/Orders/Orders";
 import Paginate from "../../components/Paginate/Paginate";
@@ -10,17 +10,23 @@ import style from "./Home.module.css";
 const Home = () => {
   const dispatch = useDispatch();
   const allDogs = useSelector((state) => state.dogs);
-  const [currentPage, setCurrentPage] = useState(0);
-  const dogsPerPage = 8;
+  const [filteredDogs, setFilteredDogs] = useState(allDogs);
+  const currentPage = useSelector((state) => state.currentPage);
 
   useEffect(() => {
-    dispatch(getAllDogs());
-  }, [dispatch]);
+    if (allDogs.length === 0) {
+      dispatch(getAllDogs());
+    } else {
+      dispatch(CurrentPage(currentPage));
+    }
+    setFilteredDogs(allDogs);
+  }, [dispatch, allDogs.length, currentPage]);
 
   const handlePageChange = (page) => {
-    setCurrentPage(page);
+    dispatch(CurrentPage(page));
   };
 
+  const dogsPerPage = 8;
   const startIndex = currentPage * dogsPerPage;
   const endIndex = startIndex + dogsPerPage;
   const paginatedDogs = allDogs.slice(startIndex, endIndex);
@@ -34,9 +40,8 @@ const Home = () => {
       </div>
       <Container dogs={paginatedDogs} />
       <Paginate
-        totalDogs={totalDogs}
+        totalDogs={filteredDogs.length}
         dogsPerPage={dogsPerPage}
-        currentPage={currentPage}
         onPageChange={handlePageChange}
       />
     </div>

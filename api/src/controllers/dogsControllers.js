@@ -62,7 +62,7 @@ const postDog = async (
   });
 
   if (temperaments) {
-    const temperamentIds = temperaments.split(", ");
+    const temperamentIds = temperaments.map((temperament) => temperament.id);
     await newDog.setTemperaments(temperamentIds);
     newDog.dataValues.temperaments = await newDog.getTemperaments();
   }

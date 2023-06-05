@@ -1,6 +1,7 @@
 import {
   GET_DOGS,
   GET_DETAIL,
+  RESET_DETAIL,
   GET_QUERY,
   GET_TEMPERAMENTS,
   ORDER_NAME,
@@ -8,6 +9,7 @@ import {
   FILTER_TEMPERAMENTS,
   FILTER_CREATE,
   POST_DOG,
+  CURRENT_PAGE,
 } from "./actions";
 
 const initialState = {
@@ -25,8 +27,15 @@ const rootReducer = (state = initialState, action) => {
     case GET_DETAIL:
       return { ...state, selectedDog: action.payload };
 
+    case RESET_DETAIL:
+      return { ...state, selectedDog: null };
+
     case GET_QUERY:
-      return { ...state, dogs: action.payload, filteredDogs: action.payload };
+      return {
+        ...state,
+        dogs: action.payload,
+        filteredDogs: action.payload,
+      };
 
     case GET_TEMPERAMENTS:
       return { ...state, allTemperaments: action.payload };
@@ -67,7 +76,11 @@ const rootReducer = (state = initialState, action) => {
 
     case FILTER_TEMPERAMENTS:
       if (action.payload === "All") {
-        return { ...state, dogs: state.allDogs };
+        return {
+          ...state,
+          dogs: state.allDogs,
+          filteredDogs: state.allDogs,
+        };
       } else {
         const filteredDogs = state.allDogs.filter((dog) => {
           if (dog.temperaments) {
@@ -78,19 +91,35 @@ const rootReducer = (state = initialState, action) => {
           }
           return false;
         });
-        return { ...state, dogs: filteredDogs, filter: action.payload };
+        return {
+          ...state,
+          dogs: filteredDogs,
+          filteredDogs: filteredDogs,
+          filter: action.payload,
+        };
       }
 
     case FILTER_CREATE:
       if (action.payload === "All") {
-        return { ...state, dogs: state.allDogs };
+        return {
+          ...state,
+          dogs: state.allDogs,
+          filteredDogs: state.allDogs,
+        };
       } else {
         const createdFilter = action.payload === "true";
         const filteredDogs = state.allDogs.filter(
           (dog) => dog.created === createdFilter
         );
-        return { ...state, dogs: filteredDogs };
+        return {
+          ...state,
+          dogs: filteredDogs,
+          filteredDogs: filteredDogs,
+        };
       }
+
+    case CURRENT_PAGE:
+      return { ...state, currentPage: action.payload };
 
     default:
       return state;

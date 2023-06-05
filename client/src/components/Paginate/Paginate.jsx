@@ -1,8 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import style from "./Paginate.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { CurrentPage } from "../../redux/actions";
 
-const Paginate = ({ totalDogs, dogsPerPage, currentPage, onPageChange }) => {
+const Paginate = ({ totalDogs, dogsPerPage, onPageChange }) => {
+  const dispatch = useDispatch();
+  const currentPage = useSelector((state) => state.currentPage);
   const totalPages = Math.ceil(totalDogs / dogsPerPage);
+
+  useEffect(() => {
+    if (totalPages > 0 && currentPage >= totalPages) {
+      dispatch(CurrentPage(totalPages - 1));
+    }
+  }, [totalPages, currentPage, dispatch]);
+
+  useEffect(() => {
+    if (currentPage < 0) {
+      dispatch(CurrentPage(0));
+    }
+  }, [currentPage, dispatch]);
+
+  useEffect(() => {
+    dispatch(CurrentPage(0));
+  }, [dispatch]);
 
   const handleFirstPage = () => {
     onPageChange(0);
