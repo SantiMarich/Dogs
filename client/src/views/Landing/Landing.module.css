@@ -1,5 +1,5 @@
 body {
-  background-image: url(../../assets/img/Wallpaper\ 5.jpg);
+  background-image: url(../../assets/img/Wallpaper\ 8.jpg);
   background-size: cover;
 }
 
@@ -19,7 +19,6 @@ body {
   -webkit-backdrop-filter: blur(25px);
   border-radius: 10px;
 }
-
 .buttonLanding {
   width: 250px;
   height: 35px;
@@ -33,13 +32,11 @@ body {
   cursor: pointer;
   font-weight: 600;
 }
-
 .linkLanding {
   color: #e4e4e4;
   text-decoration: none;
   font-weight: 600;
 }
-
 .description {
   width: 250px;
   color: white;

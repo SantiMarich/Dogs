@@ -5,9 +5,9 @@
   justify-content: center;
   align-items: center;
   color: #e4e4e4;
-  font-size: 16px;
+  font-size: 14px;
   width: 200px;
-  height: 35px;
+  height: 20px;
   background: none;
   outline: none;
   cursor: pointer;
@@ -16,6 +16,8 @@
   -webkit-backdrop-filter: blur(25px);
   font-weight: 600;
   padding: 5px;
+
+  top: -2.5%;
 }
 
 .pageControl {

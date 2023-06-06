@@ -62,16 +62,15 @@ const rootReducer = (state = initialState, action) => {
         const weightA = a.weight.split(" - ");
         const weightB = b.weight.split(" - ");
         const minA = parseInt(weightA[0]);
-        const maxA = parseInt(weightA[1]);
         const minB = parseInt(weightB[0]);
-        const maxB = parseInt(weightB[1]);
 
         if (action.payload === "asc") {
-          return (maxA + minA) / 2 - (maxB + minB) / 2;
+          return minA - minB;
         } else {
-          return (maxB + minB) / 2 - (maxA + minA) / 2;
+          return minB - minA;
         }
       });
+
       return { ...state, dogs: sortedByWeight };
 
     case FILTER_TEMPERAMENTS:

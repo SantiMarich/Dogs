@@ -9,18 +9,9 @@ export default function SearchBar() {
 
   const handleInput = (event) => {
     event.preventDefault();
-    setSearchDog(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    dispatch(getQueryDogs(searchDog));
-  };
-
-  const handleKeyPress = (event) => {
-    if (event.key === "Enter") {
-      handleSubmit(event);
-    }
+    const query = event.target.value;
+    setSearchDog(query);
+    dispatch(getQueryDogs(query));
   };
 
   return (
@@ -28,15 +19,9 @@ export default function SearchBar() {
       <input
         type="text"
         onChange={handleInput}
-        onKeyPress={handleKeyPress}
         placeholder="SEARCH..."
         className={style.input}
       />
-      <button
-        type="submit"
-        onClick={handleSubmit}
-        className={style.searchButton}
-      ></button>
     </div>
   );
 }

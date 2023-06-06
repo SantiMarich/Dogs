@@ -32,7 +32,6 @@ const Filters = () => {
   return (
     <div className={style.containerFilter}>
       <label className={style.labelSelector}>
-        Filter by Temperament:
         <select
           value={selectedTemperament}
           onChange={handleFilterChange}
@@ -48,7 +47,6 @@ const Filters = () => {
       </label>
       <br />
       <label className={style.labelSelector}>
-        Filter by Created:
         <select
           value={selectedCreated}
           onChange={handleCreateChange}

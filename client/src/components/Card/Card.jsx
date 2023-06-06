@@ -14,9 +14,11 @@ const Card = (props) => {
         <img src={props.image} alt="Dog" className={style.imagenFondo} />
         <div className={style.cardContenido}>
           <div className={style.cardDog}>{props.name}</div>
-          <div className={style.cardTemperamentTitle}>TEMPERAMENTS</div>
-          <div className={style.cardTemperament}>{temperaments}</div>
-          <div className={style.cardWeight}>Weight: {props.weight}</div>
+          <div className={style.infoDog}>
+            <div className={style.cardTemperamentTitle}>TEMPERAMENTS</div>
+            <div className={style.cardTemperament}>{temperaments}</div>
+            <div className={style.cardWeight}>Weight: {props.weight}</div>
+          </div>
         </div>
       </div>
     </Link>

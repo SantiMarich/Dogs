@@ -58,9 +58,9 @@ const Form = () => {
 
     try {
       await dispatch(postDog(dogData));
-      setErrors({ general: "El perro se creó exitosamente" });
+      alert("El perro se creó exitosamente");
     } catch (error) {
-      setErrors({ general: `Error al crear el perro: ${error.message}` });
+      alert(`Error al crear el perro: ${error.message}`);
     }
   };
 
@@ -76,14 +76,6 @@ const Form = () => {
     setErrors((prevErrors) => ({
       ...prevErrors,
       [name]: formErrors,
-    }));
-  };
-
-  const handleImageChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
     }));
   };
 
@@ -141,147 +133,149 @@ const Form = () => {
   };
 
   return (
-    <form onSubmit={handleFormSubmit} className={style.Form}>
-      <div>
-        <label>
-          Name:
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleInputChange}
-          />
-        </label>
-        {errors.name && errors.name.length > 0 && (
-          <span className={style.errors}>{errors.name[0]}</span>
+    <div className={style.formContainer}>
+      <form onSubmit={handleFormSubmit} className={style.Form}>
+        <div>
+          <label>
+            NAME
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
+              placeholder="Ej: Bobby"
+            />
+          </label>
+          {errors.name && errors.name.length > 0 && (
+            <span className={style.errors}>{errors.name[0]}</span>
+          )}
+        </div>
+        <div className={style.inputGroup}>
+          <div className={style.inputWrapper}>
+            <label>
+              HEIGHT (MIN)
+              <input
+                type="text"
+                name="minHeight"
+                value={formData.minHeight}
+                onChange={handleInputChange}
+                placeholder="Ej: 10"
+              />
+            </label>
+            {errors.minHeight && (
+              <span className={style.errors}>{errors.minHeight}</span>
+            )}
+          </div>
+          <div className={style.inputWrapper}>
+            <label>
+              HEIGHT (MAX)
+              <input
+                type="text"
+                name="maxHeight"
+                value={formData.maxHeight}
+                onChange={handleInputChange}
+                placeholder="Ej: 20"
+              />
+            </label>
+            {errors.maxHeight && (
+              <span className={style.errors}>{errors.maxHeight}</span>
+            )}
+          </div>
+        </div>
+        <div className={style.inputGroup}>
+          <div className={style.inputWrapper}>
+            <label>
+              WEIGHT (MIN)
+              <input
+                type="text"
+                name="minWeight"
+                value={formData.minWeight}
+                onChange={handleInputChange}
+                placeholder="Ej: 10"
+              />
+            </label>
+            {errors.minWeight && (
+              <span className={style.errors}>{errors.minWeight}</span>
+            )}
+          </div>
+          <div className={style.inputWrapper}>
+            <label>
+              WEIGHT (MAX)
+              <input
+                type="text"
+                name="maxWeight"
+                value={formData.maxWeight}
+                onChange={handleInputChange}
+                placeholder="Ej: 20"
+              />
+            </label>
+            {errors.maxWeight && (
+              <span className={style.errors}>{errors.maxWeight}</span>
+            )}
+          </div>
+        </div>
+        <div className={style.inputGroup}>
+          <div className={style.inputWrapper}>
+            <label>
+              LIFESPAN (MIN)
+              <input
+                type="text"
+                name="minLifeSpan"
+                value={formData.minLifeSpan}
+                onChange={handleInputChange}
+                placeholder="Ej: 10"
+              />
+            </label>
+            {errors.minLifeSpan && (
+              <span className={style.errors}>{errors.minLifeSpan}</span>
+            )}
+          </div>
+          <div className={style.inputWrapper}>
+            <label>
+              LIFESPAN (MAX)
+              <input
+                type="text"
+                name="maxLifeSpan"
+                value={formData.maxLifeSpan}
+                onChange={handleInputChange}
+                placeholder="Ej: 12"
+              />
+            </label>
+            {errors.maxLifeSpan && (
+              <div className={style.errors}>{errors.maxLifeSpan}</div>
+            )}
+          </div>
+        </div>
+        <div className="form-group">
+          <label htmlFor="temperament">TEMPERAMENTS</label>
+          <select id="temperament" onChange={handleTemperamentChange}>
+            <option value="">Seleccion Temperamentos</option>
+            {allTemperaments.map((temperament) => (
+              <option key={temperament.id} value={temperament.id}>
+                {temperament.name}
+              </option>
+            ))}
+          </select>
+          <ul className={style["selected-temperaments"]}>
+            {formData.selectedTemperaments.map((temperament) => (
+              <li key={temperament.id}>
+                {temperament.name}
+                <button
+                  type="button"
+                  onClick={() => handleRemoveTemperament(temperament.id)}
+                >
+                  X
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <button type="submit">CREA TU MASCOTA</button>
+        {errors.general && (
+          <span className={style.errors}>{errors.general}</span>
         )}
-      </div>
-      <div className={style.inputGroup}>
-        <div className={style.inputWrapper}>
-          <label>
-            Height (Min):
-            <input
-              type="text"
-              name="minHeight"
-              value={formData.minHeight}
-              onChange={handleInputChange}
-            />
-          </label>
-          {errors.minHeight && (
-            <span className={style.errors}>{errors.minHeight}</span>
-          )}
-        </div>
-        <div className={style.inputWrapper}>
-          <label>
-            Height (Max):
-            <input
-              type="text"
-              name="maxHeight"
-              value={formData.maxHeight}
-              onChange={handleInputChange}
-            />
-          </label>
-          {errors.maxHeight && (
-            <span className={style.errors}>{errors.maxHeight}</span>
-          )}
-        </div>
-      </div>
-      <div className={style.inputGroup}>
-        <div className={style.inputWrapper}>
-          <label>
-            Min Weight:
-            <input
-              type="text"
-              name="minWeight"
-              value={formData.minWeight}
-              onChange={handleInputChange}
-            />
-          </label>
-          {errors.minWeight && (
-            <span className={style.errors}>{errors.minWeight}</span>
-          )}
-        </div>
-        <div className={style.inputWrapper}>
-          <label>
-            Max Weight:
-            <input
-              type="text"
-              name="maxWeight"
-              value={formData.maxWeight}
-              onChange={handleInputChange}
-            />
-          </label>
-          {errors.maxWeight && (
-            <span className={style.errors}>{errors.maxWeight}</span>
-          )}
-        </div>
-      </div>
-      <div className={style.inputGroup}>
-        <div className={style.inputWrapper}>
-          <label>
-            Life Span (Min):
-            <input
-              type="text"
-              name="minLifeSpan"
-              value={formData.minLifeSpan}
-              onChange={handleInputChange}
-            />
-          </label>
-          {errors.minLifeSpan && (
-            <span className={style.errors}>{errors.minLifeSpan}</span>
-          )}
-        </div>
-        <div className={style.inputWrapper}>
-          <label>
-            Life Span (Max):
-            <input
-              type="text"
-              name="maxLifeSpan"
-              value={formData.maxLifeSpan}
-              onChange={handleInputChange}
-            />
-          </label>
-          {errors.maxLifeSpan && (
-            <span className={style.errors}>{errors.maxLifeSpan}</span>
-          )}
-        </div>
-      </div>
-      <label>
-        URL Image:
-        <input
-          type="text"
-          name="image"
-          value={formData.image}
-          onChange={handleImageChange}
-        />
-      </label>
-      <div className="form-group">
-        <label htmlFor="temperament">Temperamentos:</label>
-        <select id="temperament" onChange={handleTemperamentChange}>
-          <option value="">Seleccione un temperamento</option>
-          {allTemperaments.map((temperament) => (
-            <option key={temperament.id} value={temperament.id}>
-              {temperament.name}
-            </option>
-          ))}
-        </select>
-        <ul className="selected-temperaments">
-          {formData.selectedTemperaments.map((temperament) => (
-            <li key={temperament.id}>
-              {temperament.name}
-              <button
-                type="button"
-                onClick={() => handleRemoveTemperament(temperament.id)}
-              >
-                X
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
-      {errors.general && <span className={style.errors}>{errors.general}</span>}
-      <button type="submit">Create Dog</button>
-    </form>
+      </form>
+    </div>
   );
 };
 

@@ -4,9 +4,7 @@ export const validateName = (name) => {
   if (!name) {
     errors.push("El nombre es requerido");
   } else if (!/^[a-zA-Z\s]{1,25}$/.test(name)) {
-    errors.push(
-      "El nombre solo puede contener letras y espacios, con una longitud máxima de 25 caracteres"
-    );
+    errors.push("Nombre Invalido");
   }
 
   return errors;
@@ -19,15 +17,15 @@ export const validateHeight = (minHeight, maxHeight) => {
     errors.push("Se requiere al menos una altura");
   } else {
     if (minHeight && (!/^\d+$/.test(minHeight) || parseInt(minHeight) < 1)) {
-      errors.push("La altura mínima debe ser un número entero positivo");
+      errors.push("Altura Invalida");
     }
 
     if (maxHeight && (!/^\d+$/.test(maxHeight) || parseInt(maxHeight) < 1)) {
-      errors.push("La altura máxima debe ser un número entero positivo");
+      errors.push("Altura Invalida");
     }
 
     if (minHeight && maxHeight && parseInt(maxHeight) <= parseInt(minHeight)) {
-      errors.push("La altura máxima debe ser mayor que la altura mínima");
+      errors.push("Altura Invalida");
     }
   }
 
@@ -41,15 +39,15 @@ export const validateWeight = (minWeight, maxWeight) => {
     errors.push("Se requiere al menos un peso");
   } else {
     if (minWeight && (!/^\d+$/.test(minWeight) || parseInt(minWeight) < 1)) {
-      errors.push("El peso mínimo debe ser un número entero positivo");
+      errors.push("Peso Invalido");
     }
 
     if (maxWeight && (!/^\d+$/.test(maxWeight) || parseInt(maxWeight) < 1)) {
-      errors.push("El peso máximo debe ser un número entero positivo");
+      errors.push("Peso Invalido");
     }
 
     if (minWeight && maxWeight && parseInt(maxWeight) <= parseInt(minWeight)) {
-      errors.push("El peso máximo debe ser mayor que el peso mínimo");
+      errors.push("Peso Invalido");
     }
   }
 
@@ -66,18 +64,14 @@ export const validateLifespan = (minLifeSpan, maxLifeSpan) => {
       minLifeSpan &&
       (!/^\d+$/.test(minLifeSpan) || parseInt(minLifeSpan) < 1)
     ) {
-      errors.push(
-        "La esperanza de vida mínima debe ser un número entero positivo"
-      );
+      errors.push("LifeSpan Invalido");
     }
 
     if (
       maxLifeSpan &&
       (!/^\d+$/.test(maxLifeSpan) || parseInt(maxLifeSpan) < 1)
     ) {
-      errors.push(
-        "La esperanza de vida máxima debe ser un número entero positivo"
-      );
+      errors.push("LifeSpan Invalido");
     }
 
     if (
@@ -85,9 +79,7 @@ export const validateLifespan = (minLifeSpan, maxLifeSpan) => {
       maxLifeSpan &&
       parseInt(maxLifeSpan) <= parseInt(minLifeSpan)
     ) {
-      errors.push(
-        "La esperanza de vida máxima debe ser mayor que la esperanza de vida mínima"
-      );
+      errors.push("LifeSpan Invalido");
     }
   }
 

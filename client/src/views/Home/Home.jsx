@@ -20,7 +20,7 @@ const Home = () => {
       dispatch(CurrentPage(currentPage));
     }
     setFilteredDogs(allDogs);
-  }, [dispatch, allDogs.length, currentPage]);
+  }, [dispatch, allDogs.length, currentPage, allDogs]);
 
   const handlePageChange = (page) => {
     dispatch(CurrentPage(page));
@@ -30,7 +30,6 @@ const Home = () => {
   const startIndex = currentPage * dogsPerPage;
   const endIndex = startIndex + dogsPerPage;
   const paginatedDogs = allDogs.slice(startIndex, endIndex);
-  const totalDogs = allDogs.length;
 
   return (
     <div className={style.containerHome}>

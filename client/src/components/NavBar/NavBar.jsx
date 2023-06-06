@@ -8,9 +8,9 @@ const NavBar = ({ onSearch }) => {
     <div className={style.HeaderContainer}>
       <div className={style.NavBarContainer}>
         <Link to="/home">HOME</Link>
-        <Link to="/create">CREA TU PERRO</Link>
-        <SearchBar onSearch={onSearch} />
+        <Link to="/create">CREA TU MASCOTA</Link>
       </div>
+      <SearchBar onSearch={onSearch} />
     </div>
   );
 };
