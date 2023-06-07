@@ -7,8 +7,8 @@ const Landing = () => {
     <div className={style.containerLanding}>
       <h1>Woof-Woof!</h1>
       <h5 className={style.description}>
-        Esta es la aplicacion perfecta para encontrar a tu proxima todo.
-        Aprenderas todo sobre tu perro
+        Esta es la aplicacion perfecta para encontrar a tu mascota. Aprenderas
+        todo sobre tu perro
       </h5>
       <div>
         <button className={style.buttonLanding}>

@@ -22,24 +22,35 @@
 .Form {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   max-width: 300px;
   margin: 0 auto;
+  height: 475px;
+}
+
+.formInputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 300px;
+  height: 300px;
 }
 
 .Form label {
   color: #e4e4e4;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   font-weight: 500;
   font-size: 12px;
 }
 
-.Form input[type="text"],
-.Form select {
+.Form input[type="text"] {
+  margin-top: 10px;
+  display: block;
   padding: 5px;
-  border: 1px solid #ccc;
+  border: 2px solid white;
   border-radius: 4px;
-  width: 100%;
-  margin-bottom: 5px;
+  width: 125px;
+  background-color: white;
 }
 
 .selected-temperaments {
@@ -47,6 +58,7 @@
   list-style-type: none;
   padding: 0;
   margin: 0;
+  color: white;
 }
 
 .selected-temperaments li {
@@ -58,6 +70,7 @@
   justify-content: center;
   margin-bottom: 5px;
   font-size: 10px;
+  background-color: #262626;
 }
 
 .selected-temperaments li button {
@@ -71,6 +84,7 @@
 }
 
 .Form button[type="submit"] {
+  display: block;
   padding: 10px;
   background-color: rgb(10, 10, 10);
   color: white;
@@ -95,7 +109,32 @@
   margin-bottom: 5px;
 }
 
+.inputWrapper input {
+  width: 100px;
+}
+
 .errors {
   color: red;
-  font-size: 0.8em;
+  font-size: 10px;
+}
+
+.errorsContainer {
+  position: absolute;
+}
+
+.inputName {
+  margin-top: 10px;
+  display: block;
+  width: 285px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.Form select {
+  display: block;
+  padding: 5px;
+  border-radius: 4px;
+  width: 300px;
+  margin-bottom: 10px;
 }

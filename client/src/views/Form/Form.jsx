@@ -135,121 +135,122 @@ const Form = () => {
   return (
     <div className={style.formContainer}>
       <form onSubmit={handleFormSubmit} className={style.Form}>
-        <div>
-          <label>
-            NAME
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleInputChange}
-              placeholder="Ej: Bobby"
-            />
-          </label>
-          {errors.name && errors.name.length > 0 && (
-            <span className={style.errors}>{errors.name[0]}</span>
-          )}
-        </div>
-        <div className={style.inputGroup}>
-          <div className={style.inputWrapper}>
+        <div className={style.formInputs}>
+          <div>
             <label>
-              HEIGHT (MIN)
+              NOMBRE DE TU MASCOTA
               <input
-                type="text"
-                name="minHeight"
-                value={formData.minHeight}
+                className={style.inputName}
+                name="name"
+                value={formData.name}
                 onChange={handleInputChange}
-                placeholder="Ej: 10"
+                placeholder="Ej: Bobby"
               />
             </label>
-            {errors.minHeight && (
-              <span className={style.errors}>{errors.minHeight}</span>
+            {errors.name && errors.name.length > 0 && (
+              <span className={style.errors}>{errors.name[0]}</span>
             )}
           </div>
-          <div className={style.inputWrapper}>
-            <label>
-              HEIGHT (MAX)
-              <input
-                type="text"
-                name="maxHeight"
-                value={formData.maxHeight}
-                onChange={handleInputChange}
-                placeholder="Ej: 20"
-              />
-            </label>
-            {errors.maxHeight && (
-              <span className={style.errors}>{errors.maxHeight}</span>
-            )}
+          <div className={style.inputGroup}>
+            <div className={style.inputWrapper}>
+              <label>
+                MAX HEIGHT (cm)
+                <input
+                  type="text"
+                  name="minHeight"
+                  value={formData.minHeight}
+                  onChange={handleInputChange}
+                  placeholder="Ej: 10"
+                />
+              </label>
+              {errors.minHeight && (
+                <span className={style.errors}>{errors.minHeight}</span>
+              )}
+            </div>
+            <div className={style.inputWrapper}>
+              <label>
+                MAX HEIGHT (cm)
+                <input
+                  type="text"
+                  name="maxHeight"
+                  value={formData.maxHeight}
+                  onChange={handleInputChange}
+                  placeholder="Ej: 20"
+                />
+              </label>
+              {errors.maxHeight && (
+                <span className={style.errors}>{errors.maxHeight}</span>
+              )}
+            </div>
           </div>
-        </div>
-        <div className={style.inputGroup}>
-          <div className={style.inputWrapper}>
-            <label>
-              WEIGHT (MIN)
-              <input
-                type="text"
-                name="minWeight"
-                value={formData.minWeight}
-                onChange={handleInputChange}
-                placeholder="Ej: 10"
-              />
-            </label>
-            {errors.minWeight && (
-              <span className={style.errors}>{errors.minWeight}</span>
-            )}
+          <div className={style.inputGroup}>
+            <div className={style.inputWrapper}>
+              <label>
+                MIN WEIGHT (kg)
+                <input
+                  type="text"
+                  name="minWeight"
+                  value={formData.minWeight}
+                  onChange={handleInputChange}
+                  placeholder="Ej: 10"
+                />
+              </label>
+              {errors.minWeight && (
+                <span className={style.errors}>{errors.minWeight}</span>
+              )}
+            </div>
+            <div className={style.inputWrapper}>
+              <label>
+                MAX WEIGHT (kg)
+                <input
+                  type="text"
+                  name="maxWeight"
+                  value={formData.maxWeight}
+                  onChange={handleInputChange}
+                  placeholder="Ej: 20"
+                />
+              </label>
+              {errors.maxWeight && (
+                <span className={style.errors}>{errors.maxWeight}</span>
+              )}
+            </div>
           </div>
-          <div className={style.inputWrapper}>
-            <label>
-              WEIGHT (MAX)
-              <input
-                type="text"
-                name="maxWeight"
-                value={formData.maxWeight}
-                onChange={handleInputChange}
-                placeholder="Ej: 20"
-              />
-            </label>
-            {errors.maxWeight && (
-              <span className={style.errors}>{errors.maxWeight}</span>
-            )}
-          </div>
-        </div>
-        <div className={style.inputGroup}>
-          <div className={style.inputWrapper}>
-            <label>
-              LIFESPAN (MIN)
-              <input
-                type="text"
-                name="minLifeSpan"
-                value={formData.minLifeSpan}
-                onChange={handleInputChange}
-                placeholder="Ej: 10"
-              />
-            </label>
-            {errors.minLifeSpan && (
-              <span className={style.errors}>{errors.minLifeSpan}</span>
-            )}
-          </div>
-          <div className={style.inputWrapper}>
-            <label>
-              LIFESPAN (MAX)
-              <input
-                type="text"
-                name="maxLifeSpan"
-                value={formData.maxLifeSpan}
-                onChange={handleInputChange}
-                placeholder="Ej: 12"
-              />
-            </label>
-            {errors.maxLifeSpan && (
-              <div className={style.errors}>{errors.maxLifeSpan}</div>
-            )}
+          <div className={style.inputGroup}>
+            <div className={style.inputWrapper}>
+              <label>
+                MIN LIFESPAN (years)
+                <input
+                  type="text"
+                  name="minLifeSpan"
+                  value={formData.minLifeSpan}
+                  onChange={handleInputChange}
+                  placeholder="Ej: 10"
+                />
+              </label>
+              {errors.minLifeSpan && (
+                <span className={style.errors}>{errors.minLifeSpan}</span>
+              )}
+            </div>
+            <div className={style.inputWrapper}>
+              <label>
+                MAX LIFESPAN (years)
+                <input
+                  type="text"
+                  name="maxLifeSpan"
+                  value={formData.maxLifeSpan}
+                  onChange={handleInputChange}
+                  placeholder="Ej: 12"
+                />
+              </label>
+              {errors.maxLifeSpan && (
+                <div className={style.errors}>{errors.maxLifeSpan}</div>
+              )}
+            </div>
           </div>
         </div>
         <div className="form-group">
-          <label htmlFor="temperament">TEMPERAMENTS</label>
           <select id="temperament" onChange={handleTemperamentChange}>
-            <option value="">Seleccion Temperamentos</option>
+            <option value="">Seleccion de Temperamentos</option>
             {allTemperaments.map((temperament) => (
               <option key={temperament.id} value={temperament.id}>
                 {temperament.name}
@@ -270,10 +271,10 @@ const Form = () => {
             ))}
           </ul>
         </div>
-        <button type="submit">CREA TU MASCOTA</button>
-        {errors.general && (
-          <span className={style.errors}>{errors.general}</span>
-        )}
+        <button type="submit" className={style.formButton}>
+          CREA TU MASCOTA
+        </button>
+        {errors.general && <p className={style.errors}>{errors.general}</p>}
       </form>
     </div>
   );
