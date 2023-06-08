@@ -37,7 +37,7 @@ const Filters = () => {
           onChange={handleFilterChange}
           className={style.selector}
         >
-          <option value="All">Filter By Temperament:</option>
+          <option value="All">Filter By Temperament</option>
           {allTemperaments.map((temperament) => (
             <option key={temperament.id} value={temperament.name}>
               {temperament.name}
@@ -52,7 +52,7 @@ const Filters = () => {
           onChange={handleCreateChange}
           className={style.selector}
         >
-          <option value="All"> Filter By Created:</option>
+          <option value="All"> Filter By Created</option>
           <option value="true">Base de Datos</option>
           <option value="false">API</option>
         </select>

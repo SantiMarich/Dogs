@@ -81,8 +81,8 @@ export const filterByTemperaments = (temperaments) => {
   return { type: FILTER_TEMPERAMENTS, payload: temperaments };
 };
 
-export const filterByCreate = (create) => {
-  return { type: FILTER_CREATE, payload: create };
+export const filterByCreate = (created) => {
+  return { type: FILTER_CREATE, payload: created };
 };
 
 export const orderByName = (order) => {

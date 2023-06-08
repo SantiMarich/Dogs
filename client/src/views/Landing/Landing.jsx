@@ -13,7 +13,7 @@ const Landing = () => {
       <div>
         <button className={style.buttonLanding}>
           <Link to="/home" className={style.linkLanding}>
-            INGRESAR
+            HOME PAGE
           </Link>
         </button>
         <h5>© 2023 - Santiago Marich</h5>

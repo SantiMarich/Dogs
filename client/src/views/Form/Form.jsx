@@ -85,13 +85,15 @@ const Form = () => {
       (temperament) => temperament.id === temperamentId
     );
     if (selectedTemperament) {
-      setFormData((prevFormData) => ({
-        ...prevFormData,
-        selectedTemperaments: [
-          ...prevFormData.selectedTemperaments,
-          selectedTemperament,
-        ],
-      }));
+      if (!formData.selectedTemperaments.includes(selectedTemperament)) {
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          selectedTemperaments: [
+            ...prevFormData.selectedTemperaments,
+            selectedTemperament,
+          ],
+        }));
+      }
     }
   };
 

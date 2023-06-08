@@ -29,7 +29,11 @@ const Detail = () => {
         <h3 className={style.Loading}>LOADING...</h3>
       ) : (
         <div className={style.detailContainer}>
-          <img src={dog.image} alt="Dog" className={style.detailImage} />
+          <img
+            src={dog.image}
+            alt="Imagen no encontrada"
+            className={style.detailImage}
+          />
           <h2 className={style.detailName}>{dog.name}</h2>
           <h5 className={style.height}>Height: {dog.height} cm</h5>
           <h5 className={style.weight}>Weight: {dog.weight} kg</h5>

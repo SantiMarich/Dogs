@@ -27,7 +27,7 @@ const getAllTemperaments = async () => {
 
     return savedTemperaments;
   } catch (error) {
-    throw new Error("Failed to fetch Temperaments");
+    throw new Error("No se encontraron temperamentos");
   }
 };
 

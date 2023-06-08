@@ -17,12 +17,18 @@ const initialState = {
   selectedDog: null,
   allTemperaments: [],
   allDogs: [],
+  currentPage: 0,
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_DOGS:
-      return { ...state, dogs: action.payload, allDogs: action.payload };
+      return {
+        ...state,
+        dogs: action.payload,
+        allDogs: action.payload,
+        filteredDogs: action.payload,
+      };
 
     case GET_DETAIL:
       return { ...state, selectedDog: action.payload };
@@ -44,7 +50,8 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         dogs: [...state.dogs, action.payload],
-        filteredDogs: [...state.dogs, action.payload],
+        allDogs: [...state.allDogs, action.payload],
+        filteredDogs: [...state.allDogs, action.payload],
       };
 
     case ORDER_NAME:
@@ -94,7 +101,7 @@ const rootReducer = (state = initialState, action) => {
           ...state,
           dogs: filteredDogs,
           filteredDogs: filteredDogs,
-          filter: action.payload,
+          currentPage: 0,
         };
       }
 
@@ -106,9 +113,9 @@ const rootReducer = (state = initialState, action) => {
           filteredDogs: state.allDogs,
         };
       } else {
-        const createdFilter = action.payload === "true";
+        const isCreated = action.payload === "true";
         const filteredDogs = state.allDogs.filter(
-          (dog) => dog.created === createdFilter
+          (dog) => dog.created === isCreated
         );
         return {
           ...state,

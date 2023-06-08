@@ -10,8 +10,8 @@ import style from "./Home.module.css";
 const Home = () => {
   const dispatch = useDispatch();
   const allDogs = useSelector((state) => state.dogs);
-  const [filteredDogs, setFilteredDogs] = useState(allDogs);
   const currentPage = useSelector((state) => state.currentPage);
+  const [filteredDogs, setFilteredDogs] = useState(allDogs);
 
   useEffect(() => {
     if (allDogs.length === 0) {
@@ -29,7 +29,7 @@ const Home = () => {
   const dogsPerPage = 8;
   const startIndex = currentPage * dogsPerPage;
   const endIndex = startIndex + dogsPerPage;
-  const paginatedDogs = allDogs.slice(startIndex, endIndex);
+  const paginatedDogs = filteredDogs.slice(startIndex, endIndex);
 
   return (
     <div className={style.containerHome}>
