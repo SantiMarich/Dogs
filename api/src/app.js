@@ -17,10 +17,7 @@ server.use(cookieParser());
 server.use(morgan("dev"));
 server.use(cors());
 server.use((req, res, next) => {
-  res.header(
-    "Access-Control-Allow-Origin",
-    "woofwoof-lipulv2yc-santimarich.vercel.app"
-  );
+  res.header("Access-Control-Allow-Origin", "*");
   // "http://localhost:3000"
   res.header("Access-Control-Allow-Credentials", "true");
   res.header(
