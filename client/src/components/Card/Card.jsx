@@ -11,7 +11,6 @@ const Card = (props) => {
   return (
     <Link to={`/detail/${props.id}`}>
       <div className={style.card}>
-        <img src={props.image} alt="Dog" className={style.imagenFondo} />
         <div className={style.cardContenido}>
           <div className={style.cardDog}>{props.name}</div>
           <div className={style.infoDog}>
@@ -20,6 +19,7 @@ const Card = (props) => {
             <div className={style.cardWeight}>Weight: {props.weight}</div>
           </div>
         </div>
+        <img src={props.image} alt="Dog" className={style.imagenFondo} />
       </div>
     </Link>
   );
