@@ -1,7 +1,5 @@
 import axios from "axios";
 
-const url = "http://localhost:3001";
-
 export const GET_DOGS = "GET_DOGS";
 export const GET_DETAIL = "GET_DETAIL";
 export const RESET_DETAIL = "RESET_DETAIL";
@@ -17,7 +15,7 @@ export const CURRENT_PAGE = "CURRENT_PAGE";
 export const getAllDogs = () => {
   return async function (dispatch) {
     try {
-      const apiData = await axios.get(`${url}/dogs`);
+      const apiData = await axios.get(`/dogs`);
       const dogs = apiData.data;
       dispatch({ type: GET_DOGS, payload: dogs });
     } catch (error) {
@@ -28,7 +26,7 @@ export const getAllDogs = () => {
 
 export const getDetailDogs = (id) => {
   return async function (dispatch) {
-    const apiData = await axios.get(`${url}/dogs/${id}`);
+    const apiData = await axios.get(`/dogs/${id}`);
     const dog = apiData.data;
     dispatch({ type: GET_DETAIL, payload: dog });
   };
@@ -46,7 +44,7 @@ export const resetDetail = () => {
 
 export const getQueryDogs = (name) => {
   return async function (dispatch) {
-    const apiData = await axios.get(`${url}/dogs?name=${name}`);
+    const apiData = await axios.get(`/dogs?name=${name}`);
     const dogs = apiData.data;
     dispatch({ type: GET_QUERY, payload: dogs });
   };
@@ -55,7 +53,7 @@ export const getQueryDogs = (name) => {
 export const getTemperamentsDogs = () => {
   return async function (dispatch) {
     try {
-      const apiData = await axios.get(`${url}/temperaments`);
+      const apiData = await axios.get(`/temperaments`);
       const temperaments = apiData.data;
       dispatch({ type: GET_TEMPERAMENTS, payload: temperaments });
     } catch (error) {
@@ -67,7 +65,7 @@ export const getTemperamentsDogs = () => {
 export function postDog(payload) {
   return async function (dispatch) {
     try {
-      const response = await axios.post(`${url}/dogs`, payload);
+      const response = await axios.post(`/dogs`, payload);
       const createdDog = response.data;
       dispatch({ type: POST_DOG, payload: createdDog });
       return createdDog;
