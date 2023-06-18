@@ -19,7 +19,7 @@ server.use(cors());
 server.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Origin",
-    "https://woofwoof-pi.vercel.app/home"
+    "woofwoof-lipulv2yc-santimarich.vercel.app"
   );
   // "http://localhost:3000"
   res.header("Access-Control-Allow-Credentials", "true");
