@@ -37,7 +37,9 @@ const Home = () => {
         <Filters />
         <Orders />
       </div>
-      <Container dogs={paginatedDogs} />
+      <div className={style.containerAll}>
+        <Container dogs={paginatedDogs} />
+      </div>
       <Paginate
         totalDogs={filteredDogs.length}
         dogsPerPage={dogsPerPage}

@@ -1,6 +1,5 @@
 .containerAll {
-  width: 1350px;
-  height: 550px;
+  width: 100%;
   display: flex;
   flex-direction: space-around;
   flex-wrap: wrap;
