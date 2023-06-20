@@ -1,8 +1,12 @@
 .containerAll {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 20px;
-  max-width: 1350px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: space-around;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
   margin: 20px;
   border: none;
   border-radius: 10px;
