@@ -18,7 +18,7 @@
   justify-content: center;
   align-items: center;
   width: auto;
-  padding: 0;
+  padding: 2px;
   background: transparent;
   border: none;
   outline: none;
@@ -70,12 +70,10 @@
     padding: 10px;
     padding-left: 20px;
   }
-
   .NavBarContainer a {
     margin-right: 10px;
     font-size: 8px;
   }
-
   .search {
     max-width: 150px;
   }
