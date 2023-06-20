@@ -16,20 +16,14 @@
 
 .NavBarContainer {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  flex-direction: row;
   align-items: center;
-  width: 100%;
-  padding: 10px;
-}
-
-@media (min-width: 768px) {
-  .NavBarContainer {
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    width: auto;
-  }
+  width: 85%;
+  align-items: center;
+  background: none;
+  cursor: pointer;
+  transform: translateX(2.5%);
 }
 
 .NavBarContainer a {

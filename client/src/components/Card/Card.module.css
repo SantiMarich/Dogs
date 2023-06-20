@@ -4,24 +4,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  max-width: 300px;
-  padding: 20px;
-  border-radius: 10px;
-  background-color: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.imagenFondo {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
-@media (min-width: 768px) {
-  .card {
-    max-width: none;
-  }
+  width: 300px;
+  height: 250px;
+  color: rgb(255, 255, 255);
+  margin: 0px 12.5px 0px 12.5px;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 0 20px 0px hsl(0, 0%, 20%);
 }
 
 .cardContenido {

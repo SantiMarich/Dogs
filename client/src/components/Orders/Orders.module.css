@@ -1,19 +1,19 @@
 .containerOrder {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-@media (min-width: 768px) {
-  .containerOrder {
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    width: auto;
-  }
+  color: #e4e4e4;
+  font-size: 14px;
+  width: 250px;
+  height: 30px;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 100;
+  left: -56px;
 }
 
 .controlOrder {
