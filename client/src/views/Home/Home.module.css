@@ -1,20 +1,24 @@
 .containerHome {
-  position: absolute;
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  width: 100%;
-  max-width: 1200px;
   margin: 5px;
 }
 
 .selectors {
-  position: relative;
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   height: 35px;
   width: 100%;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+  width: 100%;
+  max-width: 1350px;
+  margin: 20px;
 }
