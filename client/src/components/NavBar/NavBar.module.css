@@ -1,5 +1,5 @@
 .HeaderContainer {
-  width: 1305px;
+  width: 100%;
   background: none;
   position: relative;
   display: flex;
@@ -19,7 +19,7 @@
   justify-content: flex-start;
   flex-direction: row;
   align-items: center;
-  width: 85%;
+  width: 100%;
   align-items: center;
   background: none;
   cursor: pointer;
@@ -53,4 +53,31 @@
 .NavBarContainer a:hover::after {
   transform: translateY(0px);
   opacity: 1;
+}
+
+/* Media queries para ajustar el estilo en diferentes tamaños de pantalla */
+@media (max-width: 768px) {
+  .HeaderContainer {
+    padding-left: 20px;
+  }
+
+  .NavBarContainer {
+    transform: none;
+  }
+
+  .NavBarContainer a {
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .HeaderContainer {
+    padding: 10px;
+    padding-left: 20px;
+  }
+
+  .NavBarContainer a {
+    margin-right: 10px;
+    font-size: 14px;
+  }
 }
