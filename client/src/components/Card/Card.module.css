@@ -15,7 +15,7 @@
 }
 
 .cardContenido {
-  position: relative;
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,11 +61,4 @@
   height: 250px;
   object-fit: cover;
   filter: contrast(125%);
-  transition: 0.8s;
-  z-index: -100;
-}
-
-.imagenFondo:hover {
-  transform: scale(0.5);
-  transition: 0.8s;
 }
