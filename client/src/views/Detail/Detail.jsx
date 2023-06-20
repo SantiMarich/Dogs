@@ -24,7 +24,7 @@ const Detail = () => {
     : "";
 
   return (
-    <div>
+    <div className={style.container}>
       {!dog ? (
         <h3 className={style.Loading}>LOADING...</h3>
       ) : (
@@ -35,9 +35,9 @@ const Detail = () => {
             className={style.detailImage}
           />
           <h2 className={style.detailName}>{dog.name}</h2>
-          <h5 className={style.height}>Height: {dog.height} cm</h5>
-          <h5 className={style.weight}>Weight: {dog.weight} kg</h5>
-          <h5 className={style.lifespan}>LifeSpan: {dog.life_span}</h5>
+          <h5 className={style.detailInfo}>Height: {dog.height} cm</h5>
+          <h5 className={style.detailInfo}>Weight: {dog.weight} kg</h5>
+          <h5 className={style.detailInfo}>LifeSpan: {dog.life_span}</h5>
           <h5 className={style.temperamentsTitle}>TEMPERAMENTS</h5>
           <h5 className={style.temperamentsContent}>{temperaments}</h5>
           <Link to="/home" className={style.linkClose}>
