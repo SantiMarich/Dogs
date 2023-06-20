@@ -1,23 +1,19 @@
 .containerPaginate {
-  position: relative;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #e4e4e4;
-  font-size: 14px;
-  width: 200px;
-  height: 20px;
-  background: none;
-  outline: none;
-  cursor: pointer;
-  background-color: #ffffff10;
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
-  font-weight: 600;
-  padding: 5px;
+  width: 100%;
+  margin-top: 10px;
+}
 
-  top: -2.5%;
+@media (min-width: 768px) {
+  .containerPaginate {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: auto;
+  }
 }
 
 .pageControl {

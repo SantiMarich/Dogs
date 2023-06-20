@@ -1,23 +1,50 @@
 .containerHome {
   position: absolute;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  height: 625px;
-  width: 99%;
-  margin: 5px;
+  height: 100%;
+  width: 100%;
+  padding: 10px;
 }
 
 .selectors {
-  position: relative;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.containerDogs {
   display: flex;
-  flex-direction: row;
-  height: 35px;
-  width: 84%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .containerHome {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .selectors {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: auto;
+    margin-bottom: 0;
+    margin-right: 20px;
+  }
+
+  .containerDogs {
+    align-items: flex-start;
+  }
 }
