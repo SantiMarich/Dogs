@@ -1,10 +1,3 @@
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
 .detailContainer {
   width: 300px;
   height: 70%;
@@ -118,42 +111,4 @@
   font-weight: 600;
   text-decoration: none;
   color: white;
-}
-
-@media (max-width: 768px) {
-  .detailContainer {
-    width: 90%;
-    height: auto;
-    top: auto;
-    left: auto;
-    margin: 10px;
-  }
-
-  .detailImage {
-    width: 100%;
-    height: auto;
-  }
-
-  .detailName {
-    width: 100%;
-  }
-}
-
-@media (max-width: 500px) {
-  .detailContainer {
-    width: 90%;
-    height: auto;
-    top: auto;
-    left: auto;
-    margin: 10px;
-  }
-
-  .detailImage {
-    width: 100%;
-    height: auto;
-  }
-
-  .detailName {
-    width: 100%;
-  }
 }
