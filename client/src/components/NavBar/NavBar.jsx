@@ -8,7 +8,7 @@ const NavBar = ({ onSearch }) => {
     <div className={style.HeaderContainer}>
       <div className={style.NavBarContainer}>
         <Link to="/home">HOME</Link>
-        <Link to="/create">CREA TU MASCOTA</Link>
+        <Link to="/create">CREATE YOUR DOG</Link>
       </div>
       <SearchBar onSearch={onSearch} />
     </div>

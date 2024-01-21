@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import style from "./Card.module.css";
+import DogDefault from "../../assets/img/DogDefault2.jpg";
 
 const Card = (props) => {
   const temperaments = props.temperaments
@@ -19,7 +20,15 @@ const Card = (props) => {
             <div className={style.cardWeight}>Weight: {props.weight}</div>
           </div>
         </div>
-        <img src={props.image} alt="Dog" className={style.imagenFondo} />
+        <img
+          src={props.image}
+          alt="Dog"
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = DogDefault;
+          }}
+          className={style.imagenFondo}
+        />
       </div>
     </Link>
   );

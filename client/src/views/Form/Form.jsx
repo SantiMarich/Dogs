@@ -140,13 +140,13 @@ const Form = () => {
         <div className={style.formInputs}>
           <div>
             <label>
-              NOMBRE DE TU MASCOTA
+              NAME
               <input
                 className={style.inputName}
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                placeholder="Ej: Bobby"
+                placeholder="Ex: Bobby"
               />
             </label>
             {errors.name && errors.name.length > 0 && (
@@ -162,7 +162,7 @@ const Form = () => {
                   name="minHeight"
                   value={formData.minHeight}
                   onChange={handleInputChange}
-                  placeholder="Ej: 10"
+                  placeholder="Ex: 10"
                 />
               </label>
               {errors.minHeight && (
@@ -177,7 +177,7 @@ const Form = () => {
                   name="maxHeight"
                   value={formData.maxHeight}
                   onChange={handleInputChange}
-                  placeholder="Ej: 20"
+                  placeholder="Ex: 20"
                 />
               </label>
               {errors.maxHeight && (
@@ -194,7 +194,7 @@ const Form = () => {
                   name="minWeight"
                   value={formData.minWeight}
                   onChange={handleInputChange}
-                  placeholder="Ej: 10"
+                  placeholder="Ex: 10"
                 />
               </label>
               {errors.minWeight && (
@@ -209,7 +209,7 @@ const Form = () => {
                   name="maxWeight"
                   value={formData.maxWeight}
                   onChange={handleInputChange}
-                  placeholder="Ej: 20"
+                  placeholder="Ex: 20"
                 />
               </label>
               {errors.maxWeight && (
@@ -226,7 +226,7 @@ const Form = () => {
                   name="minLifeSpan"
                   value={formData.minLifeSpan}
                   onChange={handleInputChange}
-                  placeholder="Ej: 10"
+                  placeholder="Ex: 10"
                 />
               </label>
               {errors.minLifeSpan && (
@@ -241,7 +241,7 @@ const Form = () => {
                   name="maxLifeSpan"
                   value={formData.maxLifeSpan}
                   onChange={handleInputChange}
-                  placeholder="Ej: 12"
+                  placeholder="Ex: 12"
                 />
               </label>
               {errors.maxLifeSpan && (
@@ -252,7 +252,7 @@ const Form = () => {
         </div>
         <div className="form-group">
           <select id="temperament" onChange={handleTemperamentChange}>
-            <option value="">Seleccion de Temperamentos</option>
+            <option value="">Temperaments</option>
             {allTemperaments.map((temperament) => (
               <option key={temperament.id} value={temperament.id}>
                 {temperament.name}
@@ -274,7 +274,7 @@ const Form = () => {
           </ul>
         </div>
         <button type="submit" className={style.formButton}>
-          CREA TU MASCOTA
+          CREATE YOUR PET
         </button>
         {errors.general && <p className={style.errors}>{errors.general}</p>}
       </form>

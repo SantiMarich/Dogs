@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getDetailDogs, resetDetail } from "../../redux/actions";
 import style from "./Detail.module.css";
+import DogDefault from "../../assets/img/DogDefault2.jpg";
 
 const Detail = () => {
   const { id } = useParams();
@@ -23,6 +24,8 @@ const Detail = () => {
         .join(" ")
     : "";
 
+  const imageSource = dog && dog.image ? dog.image : DogDefault;
+
   return (
     <div className={style.container}>
       {!dog ? (
@@ -31,7 +34,11 @@ const Detail = () => {
         <div className={style.detailContainer}>
           <img
             src={dog.image}
-            alt="Imagen no encontrada"
+            alt="Dog"
+            onError={(e) => {
+              e.target.onerror = null;
+              e.target.src = DogDefault;
+            }}
             className={style.detailImage}
           />
           <h2 className={style.detailName}>{dog.name}</h2>

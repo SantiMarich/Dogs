@@ -53,7 +53,7 @@ const Filters = () => {
           className={style.selector}
         >
           <option value="All"> Filter By Created</option>
-          <option value="true">Base de Datos</option>
+          <option value="true">Database</option>
           <option value="false">API</option>
         </select>
       </label>

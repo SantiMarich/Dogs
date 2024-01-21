@@ -1,6 +1,6 @@
 .containerAll {
   width: 1350px;
-  height: 550px;
+  height: 525px;
   display: flex;
   flex-direction: space-around;
   flex-wrap: wrap;
@@ -13,4 +13,6 @@
   background-color: #ffffff10;
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
