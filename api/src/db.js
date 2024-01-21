@@ -19,7 +19,7 @@ const sequelize = new Sequelize(DB_DEPLOY, {
   native: false,
   dialectOptions: {
     ssl: {
-      require: false,
+      require: true,
     },
   },
 });
