@@ -1,9 +1,10 @@
 const axios = require("axios");
 const { Temperament } = require("../db");
+const { API_URL } = process.env;
 
 const getAllTemperaments = async () => {
   try {
-    const response = await axios.get(`https://api.thedogapi.com/v1/breeds`);
+    const response = await axios.get(API_URL);
 
     const uniqueTemperaments = new Set();
 

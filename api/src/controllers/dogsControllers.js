@@ -2,13 +2,13 @@ const axios = require("axios");
 const { Op } = require("sequelize");
 const { Dog, Temperament } = require("../db");
 const { cleanArray } = require("../helpers/dogsControllersHelpers");
+const { API_URL } = process.env;
 
 const getAllDogs = async () => {
   const databaseDogs = await Dog.findAll({
     include: Temperament,
   });
-  const apiDogsAll = (await axios.get(`https://api.thedogapi.com/v1/breeds`))
-    .data;
+  const apiDogsAll = (await axios.get(API_URL)).data;
   const apiDogs = cleanArray(apiDogsAll);
 
   return [...databaseDogs, ...apiDogs];
@@ -20,8 +20,7 @@ const getDogsByName = async (name) => {
     where: { name: { [Op.iLike]: "%" + lowercaseName + "%" } },
     include: Temperament,
   });
-  const apiDogsAll = (await axios.get(`https://api.thedogapi.com/v1/breeds`))
-    .data;
+  const apiDogsAll = (await axios.get(API_URL)).data;
   const apiDogs = cleanArray(apiDogsAll);
   const filteredApi = apiDogs.filter((dog) =>
     dog.name.toLowerCase().includes(lowercaseName)
