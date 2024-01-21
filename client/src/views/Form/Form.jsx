@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import style from "./Form.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { postDog, getTemperamentsDogs } from "../../redux/actions";
-import DogDefault from "../../assets/img/DogDefault2.png";
+import DogDefault from "../../assets/img/DogDefault2.jpg";
 import {
   validateName,
   validateHeight,
