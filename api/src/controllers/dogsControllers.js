@@ -8,7 +8,8 @@ const getAllDogs = async () => {
   const databaseDogs = await Dog.findAll({
     include: Temperament,
   });
-  const apiDogsAll = (await axios.get(API_URL)).data;
+  const apiDogsAll = (await axios.get(`https://api.thedogapi.com/v1/breeds`))
+    .data;
   const apiDogs = cleanArray(apiDogsAll);
 
   return [...databaseDogs, ...apiDogs];
@@ -20,7 +21,8 @@ const getDogsByName = async (name) => {
     where: { name: { [Op.iLike]: "%" + lowercaseName + "%" } },
     include: Temperament,
   });
-  const apiDogsAll = (await axios.get(API_URL)).data;
+  const apiDogsAll = (await axios.get(`https://api.thedogapi.com/v1/breeds`))
+    .data;
   const apiDogs = cleanArray(apiDogsAll);
   const filteredApi = apiDogs.filter((dog) =>
     dog.name.toLowerCase().includes(lowercaseName)
